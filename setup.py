@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# flake8: noqa
 
 try:
     from setuptools import setup, find_packages
@@ -8,19 +9,17 @@ except ImportError:
     use_setuptools()
     from setuptools import setup, find_packages
     from setuptools.command.test import test
-
-
 import os
+
 
 here = os.path.dirname(os.path.abspath(__file__))
 f = open(os.path.join(here,  'README.rst'))
 long_description = f.read().strip()
 f.close()
 
-
 setup(
     name='django-cron',
-    version='0.3.3',
+    version='0.5.0',
     author='Sumit Chachra',
     author_email='chachra@tivix.com',
     url='http://github.com/tivix/django-cron',
@@ -30,18 +29,16 @@ setup(
     keywords='django cron',
     zip_safe=False,
     install_requires=[
-        'Django>=1.5.0',
-        'South>=0.8.1',
-        'django-common-helpers>=0.5.1'
+        'Django>=1.8.0',
+        'django-common-helpers>=0.6.4'
     ],
-    test_suite='django_cron.tests',
+    test_suite='runtests.runtests',
     include_package_data=True,
-    # cmdclass={},
     classifiers=[
         'Framework :: Django',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'Operating System :: OS Independent',
         'Topic :: Software Development'
-    ],
+    ]
 )
